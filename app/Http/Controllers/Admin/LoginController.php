@@ -48,6 +48,23 @@ class LoginController extends Controller
     {
         return view('admin.login.index');
     }
+
+    /**
+     * 后台管理员退出跳转到后台登录页面
+     * Log the user out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return redirect('/admin/login');
+    }
+
     /**
      * 自定义认证驱动
      * @author 晚黎

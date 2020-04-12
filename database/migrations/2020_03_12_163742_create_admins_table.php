@@ -20,7 +20,8 @@ class CreateAdminsTable extends Migration
             $table->string('phone')->unique()->comment('用户手机号码');
             $table->string('password');
             $table->string('head_portrait')->nullable()->comment('用户头像');
-            $table->tinyInteger('status')->default(0)->comment('用户状态 0:启用 1:禁用');
+            $table->tinyInteger('is_valid')->default(0)->comment('用户状态 0:启用 1:禁用');
+            $table->tinyInteger('status')->default(0)->comment('有效性 0:有效 1:无效');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -19,6 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->tinyInteger('is_valid')->default(0)->comment('用户状态 0:启用 1:禁用');
+            $table->tinyInteger('status')->default(0)->comment('有效性 0:有效 1:无效');
             $table->rememberToken();
             $table->timestamps();
         });
